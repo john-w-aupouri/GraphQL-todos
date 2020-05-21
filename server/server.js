@@ -2,12 +2,13 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const cors = require('cors');
 
+// Schema
 let todos = [
-  {
-    id: 0,
-    text: 'Hello from GraphQL',
-    completed: false,
-  },
+  // {
+  //   id: 0,
+  //   text: 'Hello from GraphQL',
+  //   completed: false,
+  // },
 ];
 
 const typeDefs = gql`
@@ -22,6 +23,7 @@ const typeDefs = gql`
   type Mutation {
     createTodo(text: String!):String
     removeTodo(id: String!):String
+    updateTodo(id: String!):String
   }
 `;
 
@@ -42,6 +44,14 @@ const resolvers = {
       for (let i in todos) {
         if (todos[i].id === args.id) {
           todos.splice(i, 1);
+        }
+      }
+      return args.id;
+    },
+    updateTodo: (parent, args, context, info) => {
+      for (let i in todos) {
+        if (todos[i].id === args.id) {
+          todos[i].completed = !todos[i].completed;
         }
       }
       return args.id;

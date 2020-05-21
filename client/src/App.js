@@ -2,20 +2,10 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import gql from "graphql-tag";
 
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-
-import { Paper } from '@material-ui/core';
-import graphqlLogo from './graphql.svg';
 import './App.css';
+import Header from './components/Header';
+import Form from './components/Form';
+import Todos from './components/Todos';
 
 const READ_TODOS = gql`
   query todos{
@@ -62,31 +52,10 @@ function App() {
   return (
     <div className="App">
 
-      <header className="header">
-        <img id="graphql-svg" src={graphqlLogo} alt="graphql-logo" />
-        <h1>Todos</h1> 
-      </header>
-
-      <form onSubmit={e => {
-        e.preventDefault();
-        createTodo({ variables: { text: input.value } });
-        input.value = '';
-        window.location.reload();
-      }}>
-        <input className="form-control" type="text" placeholder="Enter todo" ref={node => { input = node; }}></input>
-        <button className="btn btn-primary px-5 my-2" type="submit">Submit</button>
-      </form>
-      <ul>
-        {data.todos.map((todo) =>
-          <li key={todo.id} className="w-100">
-            <span className={todo.completed ? "done" : "pending"}>{todo.text}</span>
-            <button className="btn btn-sm btn-danger rounded-circle float-right" onClick={() => {
-              deleteTodo({ variables: { id: todo.id } });
-              window.location.reload();
-            }}>X</button>
-          </li>
-        )}
-      </ul>
+      <Header />
+      <Form createTodo={createTodo} input={input} />
+      <Todos deleteTodo={deleteTodo} updateTodo={updateTodo} data={data} />
+     
     </div>
   );
 }
