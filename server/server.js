@@ -11,31 +11,36 @@ let todos = [
   },
   {
     id: 1,
+    text: 'Front end layout',
+    completed: false,
+  },
+  {
+    id: 2,
     text: 'Impement React-Content-API for state-management',
     completed: true,
   },
   {
-    id: 2,
+    id: 3,
     text: 'Implement local storage and form validation',
     completed: false,
   },
   {
-    id: 3,
+    id: 4,
     text: 'Set up MongoDB',
     completed: true,
   },
   {
-    id: 4,
+    id: 5,
     text: 'Back end routes',
     completed: true,
   },
   {
-    id: 5,
+    id: 6,
     text: 'Connect client and server',
     completed: false,
   },
   {
-    id: 6,
+    id: 7,
     text: 'Implement User Authentication',
     completed: false,
   },
