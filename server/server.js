@@ -4,11 +4,41 @@ const cors = require('cors');
 
 // Schema
 let todos = [
-  // {
-  //   id: 0,
-  //   text: 'Hello from GraphQL',
-  //   completed: false,
-  // },
+  {
+    id: 0,
+    text: 'Front end routes and layout',
+    completed: true,
+  },
+  {
+    id: 1,
+    text: 'Impement React-Content-API for state-management',
+    completed: true,
+  },
+  {
+    id: 2,
+    text: 'Implement local storage and form validation',
+    completed: false,
+  },
+  {
+    id: 3,
+    text: 'Set up MongoDB',
+    completed: true,
+  },
+  {
+    id: 4,
+    text: 'Back end routes',
+    completed: true,
+  },
+  {
+    id: 5,
+    text: 'Connect client and server',
+    completed: false,
+  },
+  {
+    id: 6,
+    text: 'Implement User Authentication',
+    completed: false,
+  },
 ];
 
 const typeDefs = gql`
