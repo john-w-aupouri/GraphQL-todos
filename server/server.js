@@ -6,13 +6,13 @@ const cors = require('cors');
 let todos = [
   {
     id: 0,
-    text: 'Front end routes and layout',
+    text: 'Front end routes',
     completed: true,
   },
   {
     id: 1,
     text: 'Front end layout',
-    completed: false,
+    completed: true,
   },
   {
     id: 2,
@@ -21,8 +21,8 @@ let todos = [
   },
   {
     id: 3,
-    text: 'Implement local storage and form validation',
-    completed: false,
+    text: 'Implement form validation',
+    completed: true,
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ let todos = [
   {
     id: 6,
     text: 'Connect client and server',
-    completed: false,
+    completed: true,
   },
   {
     id: 7,
